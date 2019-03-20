@@ -9,27 +9,18 @@ class School
   end
   
   def add_student(student_name, grade)
-    roster[grade] ||= []
-    roster[grade] << student_name
-  end 
-  
-  def grade(grade_level)
-    roster.detect do |x, y| 
-      if x == grade_level
-        return y 
-      end 
-    end 
+    @roster[grade] ||= []
+    @roster[grade] << student_name
   end
   
-  def sort 
-    new_hash = {}
-    roster.each do |x, y| 
-    new_hash[x] = y.sort 
-  end 
-  new_hash
-end 
-
+  def grade(grade)
+    @roster[grade]
+  end
   
+  def sort
+    @roster.each do |key, value|
+      value.sort!
+    end
+  end
 end
-
 
